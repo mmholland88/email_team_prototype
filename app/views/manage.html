@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Manage your subscriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" class="manage">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        Manage your subscriptions
+      </h1>
+
+      <span class="lede">
+        Viewing subscriptions for <span class="address">{{ address }}</span>.
+      </span>
+
+      <button class="button change-address">Change address</button>
+
+      <ul class="preferences">
+        {% for preference in preferences %}
+          <li class="preference">
+            <p>
+            Receive {{ preference.name }} emails <a href="#">{{ preference.value }}</a>.
+            </p>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <ol class="subscriptions">
+      {% for subscription in subscriptions %}
+        <li class="subscription">
+          <h2 class="heading-medium">{{subscription.title}}</h2>
+          <p>
+            Received
+            <a href="#">{{subscription.frequency}}</a>
+            as a
+            <a href="#">{{subscription.channel}}</a>.
+          </p>
+          <button class="button change-content">Change content</button>
+          <button class="button unsubscribe">Unsubscribe</button>
+        </li>
+      {% endfor %}
+      </ol>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
