@@ -40,7 +40,7 @@
             as a
             <a href="#">{{subscription.channel}}</a>.
           </p>
-          <button class="button change-content">Change content</button>
+          <a href="{{ subscription.url }}" class="button change-content">Change content</a>
           <button class="button unsubscribe">Unsubscribe</button>
         </li>
       {% endfor %}

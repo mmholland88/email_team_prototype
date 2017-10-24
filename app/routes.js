@@ -23,11 +23,13 @@ var data = {
       title: 'Publications from the Department for Education',
       frequency: 'daily',
       channel: 'HTML email',
+      url: "https://example.com/subscription-1",
     },
     {
       title: 'Spain Travel Alerts',
       frequency: 'immediately',
       channel: 'text message',
+      url: "https://example.com/subscription-2",
     },
   ]
 }

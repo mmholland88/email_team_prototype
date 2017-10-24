@@ -9,17 +9,12 @@ var Manage = function () {
 
   var bindHandlers = function () {
     $(document).on("click", ".change-address", changeAddress);
-    $(document).on("click", ".change-content", changeContent);
     $(document).on("click", ".unsubscribe", unsubscribe);
     $(document).on("click", ".undo", undo);
   };
 
   var changeAddress = function (element) {
     alert("changeAddress");
-  };
-
-  var changeContent = function (element) {
-    alert("changeContent");
   };
 
   var unsubscribe = function (element) {
