@@ -15,16 +15,18 @@
       </h1>
 
       <span class="lede">
-        Viewing subscriptions for <span class="address">{{ address }}</span>.
+        Viewing subscriptions for
+        <input type="text" value="{{ address }}" class="address" disabled="disabled"></input>
       </span>
 
       <button class="button change-address">Change address</button>
+      <span class="error"></span>
 
       <ul class="preferences">
         {% for preference in preferences %}
           <li class="preference">
             <p>
-            Receive {{ preference.name }} emails <a href="#">{{ preference.value }}</a>.
+            Receive {{ preference.name }} emails <a href="javascript:void(0);">{{ preference.value }}</a>.
             </p>
           </li>
         {% endfor %}
@@ -36,9 +38,9 @@
           <h2 class="heading-medium">{{subscription.title}}</h2>
           <p>
             Received
-            <a href="#">{{subscription.frequency}}</a>
+            <a href="javascript:void(0);">{{subscription.frequency}}</a>
             as a
-            <a href="#">{{subscription.channel}}</a>.
+            <a href="javascript:void(0);">{{subscription.channel}}</a>.
           </p>
           <a href="{{ subscription.url }}" class="button change-content">Change content</a>
           <button class="button unsubscribe">Unsubscribe</button>

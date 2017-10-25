@@ -2,12 +2,41 @@
 
 
 .manage {
+  .address:disabled {
+    color: black;
+    border: none;
+    position: relative;
+    bottom: 0.5px;
+  }
+
   .change-address {
+    margin: 1em 0 2.5em 0;
+  }
+
+  .save-address {
+    margin: 1em 1em 2.5em 0;
+  }
+
+  .error {
+    color: $error-colour;
+    display: inline-block;
+    margin-top: 1.5em;
+  }
+
+  .address-saved {
+    padding-top: 1.5em;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .cancel {
     margin-top: 1em;
   }
 
   .preferences {
-    margin-top: 4em;
+    margin-top: 2.5em;
   }
 
   .subscription {
