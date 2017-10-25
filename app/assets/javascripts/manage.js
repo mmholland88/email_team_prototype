@@ -18,6 +18,7 @@ var Manage = function () {
     $(document).on("click", ".unsubscribe", unsubscribe);
     $(document).on("click", ".undo-unsubscribe", undoUnsubscribe);
 
+    $(document).on("click", ".preference", changePreference);
     $(document).on("click", ".frequency", changeFrequency);
     $(document).on("click", ".channel", changeChannel);
     $(document).on("change", ".dropdown", dropdownChanged);
@@ -85,7 +86,7 @@ var Manage = function () {
   };
 
   var changePreference = function (event) {
-    chooseFrom(["separately", "together"], event, "preference");
+    chooseFrom(["as one combined email", "as separate emails"], event, "preference");
   };
 
   var changeFrequency = function (event) {
@@ -93,7 +94,7 @@ var Manage = function () {
   };
 
   var changeChannel = function (event) {
-    chooseFrom(["email", "text message"], event, "channel");
+    chooseFrom(["an email", "a text message"], event, "channel");
   };
 
   var dropdownChanged = function (event) {

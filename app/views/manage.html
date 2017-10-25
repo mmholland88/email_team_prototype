@@ -23,11 +23,19 @@
       <button class="button change-address">Change address</button>
       <span class="error"></span>
 
+			<div class="panel panel-border-wide">
+				<p>
+					You can receive your subscription emails immediately, or as daily or weekly digests.
+					If you choose to receive digests for multiple topics, they can be sent separately or combined into a single email.
+				</p>
+			</div>
+
       <ul class="preferences">
         {% for preference in preferences %}
-          <li class="preference">
+        <li>
             <p>
-            Receive {{ preference.name }} emails <a href="javascript:void(0);">{{ preference.value }}</a>.
+            Receive all your {{ preference.name }} digests
+            <a class="preference" href="javascript:void(0);">{{ preference.value }}</a>.
             </p>
           </li>
         {% endfor %}
@@ -38,12 +46,12 @@
         <li class="subscription">
           <h2 class="heading-medium">{{subscription.title}}</h2>
           <p>
-            Received
+            Receive
             <a class="frequency" href="javascript:void(0);">{{subscription.frequency}}</a>
-            as a
+            as
             <a class="channel" href="javascript:void(0);">{{subscription.channel}}</a>.
           </p>
-          <a href="{{ subscription.url }}" class="button change-content">Change content</a>
+          <a href="{{ subscription.url }}" class="button change-content">Refine subscription</a>
           <button class="button unsubscribe">Unsubscribe</button>
         </li>
       {% endfor %}

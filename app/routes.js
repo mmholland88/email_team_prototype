@@ -11,24 +11,24 @@ var data = {
   preferences: [
     {
       name: 'daily',
-      value: 'together',
+      value: 'as one combined email',
     },
     {
       name: 'weekly',
-      value: 'separately',
+      value: 'as separate emails',
     },
   ],
   subscriptions: [
     {
       title: 'Publications from the Department for Education',
       frequency: 'daily',
-      channel: 'email',
+      channel: 'an email',
       url: "https://example.com/subscription-1",
     },
     {
       title: 'Spain Travel Alerts',
       frequency: 'immediately',
-      channel: 'text message',
+      channel: 'a text message',
       url: "https://example.com/subscription-2",
     },
   ]
