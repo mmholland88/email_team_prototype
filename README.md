@@ -3,6 +3,10 @@
 This is a prototype of a email subscription management interface. We plan to do
 user research into this for Q3.
 
+Deployed at: [https://email-team-prototype.herokuapp.com/manage](https://email-team-prototype.herokuapp.com/manage)
+
+Speak to [@tuzz](http://github.com/tuzz) if you need access to deploy.
+
 ## Setup
 
 ```
@@ -33,8 +37,5 @@ We can then store these params in local storage as a subscription.
 The `edit_subscription_url` should link back to the signup journey when the
 'Refine subscription' button is clicked in this prototype.
 
-We also need to host this prototype on Heroku and pull in the files from the
-previous protoype into this one.
-
-There are some instructions on this
-[here](https://govuk-prototype-kit.herokuapp.com/docs/publishing-on-heroku).
+We also need to pull the relevant files from the previous prototype into this
+one.
