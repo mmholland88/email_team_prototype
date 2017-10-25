@@ -17,6 +17,11 @@ var Manage = function () {
 
     $(document).on("click", ".unsubscribe", unsubscribe);
     $(document).on("click", ".undo-unsubscribe", undoUnsubscribe);
+
+    $(document).on("click", ".frequency", changeFrequency);
+    $(document).on("click", ".channel", changeChannel);
+    $(document).on("change", ".dropdown", dropdownChanged);
+    $(document).on("focusout", ".dropdown", dropdownChanged);
   };
 
   var changeAddress = function (element) {
@@ -79,6 +84,29 @@ var Manage = function () {
     span.replaceWith(self.unsubButton);
   };
 
+  var changePreference = function (event) {
+    chooseFrom(["separately", "together"], event, "preference");
+  };
+
+  var changeFrequency = function (event) {
+    chooseFrom(["immediately", "daily", "weekly"], event, "frequency");
+  };
+
+  var changeChannel = function (event) {
+    chooseFrom(["email", "text message"], event, "channel");
+  };
+
+  var dropdownChanged = function (event) {
+    var dropdown = $(event.target);
+    var container = dropdown.closest(".dropdown-container");
+
+    var type = dropdown.data("type");
+    var selected = dropdown.find(":selected").val();
+
+    var html = "<a class='" + type + "' href='javascript:void(0);'>" + selected + "</a>";
+    container.replaceWith(html);
+  };
+
   var unsubscribedElement = function () {
     var undo = "<span class='undo-unsubscribe'> (<a href='javascript:void(0);'>undo</a>)</span>";
     var html = "<span class='unsubscribed'>Unsubscribed successfully." + undo + "</span>";
@@ -94,6 +122,37 @@ var Manage = function () {
     var undo = "<span class='undo-address'> (<a href='javascript:void(0);'>undo</a>)</span>";
     var text = "We've sent a <strong>verification email</strong> to your new address.";
     var html = "<p class='address-saved'>" + text + undo + "</p>";
+
+    return html;
+  };
+
+  var chooseFrom = function (options, event, type) {
+    var link = $(event.target);
+
+    var dropdown = buildDropdown(options, link.text(), type);
+    link.replaceWith(dropdown);
+
+    $(".dropdown").focus();
+  };
+
+  var buildDropdown = function (options, selected, type) {
+    var html = "<div class='dropdown-container'>";
+    html += "<select size='" + options.length + "'";
+    html += "class='form-control dropdown' data-type='" + type + "'>";
+
+    for (var i = 0; i < options.length; i += 1) {
+      var option = options[i];
+      html += "<option value='" + option + "'";
+
+      if (option == selected) {
+        html += "selected='selected'";
+      }
+
+      html += ">" + option + "</option>";
+    }
+
+    html += "</select>";
+    html += "</div>";
 
     return html;
   };

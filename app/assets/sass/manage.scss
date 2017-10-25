@@ -58,12 +58,20 @@
     .unsubscribed {
       display: inline-block;
       margin-top: 0.5em;
-
     }
+  }
+
+  .dropdown-container {
+    position: relative;
+    display: inline-block;
+    min-width: 6.5em;
+    margin-left: 0.25em;
   }
 
   .dropdown {
     width: inherit;
-    margin: 0 0.5em;
+    position: absolute;
+    z-index: 1;
+    top: -1.25em;
   }
 }

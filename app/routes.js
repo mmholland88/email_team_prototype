@@ -22,7 +22,7 @@ var data = {
     {
       title: 'Publications from the Department for Education',
       frequency: 'daily',
-      channel: 'HTML email',
+      channel: 'email',
       url: "https://example.com/subscription-1",
     },
     {
