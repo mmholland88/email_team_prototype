@@ -1,27 +1,40 @@
-# GOV.UK Prototype kit · [![Greenkeeper badge](https://badges.greenkeeper.io/alphagov/govuk_prototype_kit.svg)](https://greenkeeper.io/)
+## Email Team Prototype
 
-Go to the [GOV.UK Prototype Kit site](https://govuk-prototype-kit.herokuapp.com/docs) to download the latest version and read the documentation.
+This is a prototype of a email subscription management interface. We plan to do
+user research into this for Q3.
 
-## About the prototype kit
+## Setup
 
-The prototype kit provides a simple way to make interactive prototypes that look like pages on GOV.UK. These prototypes can be used to show ideas to people you work with, and to do user research.
+```
+$ npm install
+$ npm start
+```
 
-Read the [project principles](https://govuk-prototype-kit.herokuapp.com/docs/principles).
+Then visit [http://localhost:3000/manage](http://localhost:3000/manage)
 
-## Security
+## Things left to do
 
-If you publish your prototypes online, they **must** be protected by a [username and password](https://govuk-prototype-kit.herokuapp.com/docs/publishing-on-heroku). This is to prevent members of the public finding prototypes and thinking they are real services.
+We need to make the protoype work with data, perhaps backed by
+[local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
-You must protect user privacy at all times, even when using prototypes. Prototypes made with the kit look like GOV.UK, but do not have the same security provisions. Always make sure you are handling user data appropriately.
+Currently, clicking on things like 'Unsubscribe' changes the UI but it doesn't
+manipulate any data. We need to add this behaviour to `manage.js`.
 
-## Installation instructions
+We then need to integrate this against the
+[existing prototype](https://drive.google.com/open?id=0B-VU1pLvidLjZ2psdXd2UVJnNFk)
+by adding a link from the 'Verification' page of the Education taxonomy to this
+app.
 
-- [Installation guide for new users (non technical)](https://govuk-prototype-kit.herokuapp.com/docs/install/introduction)
-- [Installation guide for developers (technical)](https://govuk-prototype-kit.herokuapp.com/docs/install/developer-install-instructions)
+When we direct people to this app we should set some params, e.g.
+`email=foo@example.com&title=All%20publications&frequency=immediate|daily|weekly&edit_subscription_url=http://example.com`
 
-## Community
+We can then store these params in local storage as a subscription.
 
-We have two Slack channels for the Prototype kit. You'll need a government email address to join them.
+The `edit_subscription_url` should link back to the signup journey when the
+'Refine subscription' button is clicked in this prototype.
 
-* [Slack channel for users of the prototype kit](https://ukgovernmentdigital.slack.com/messages/prototype-kit/)
-* [Slack channel for developers of the prototype kit](https://ukgovernmentdigital.slack.com/messages/prototype-kit-dev/)
+We also need to host this prototype on Heroku and pull in the files from the
+previous protoype into this one.
+
+There are some instructions on this
+[here](https://govuk-prototype-kit.herokuapp.com/docs/publishing-on-heroku).
