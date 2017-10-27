@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% set address = data.address | default('test@example.com') %}
+
 <main id="content" role="main" class="manage">
   <div class="grid-row">
     <div class="column-two-thirds">
@@ -34,7 +36,7 @@
         {% for subscription in subscriptions %}
           <li class="subscription">
             <h2 class="heading-medium">{{subscription.title}}</h2>
-            <p>Received {{subscription.frequency}}</p>
+            <p>Received {{data[subscription.id + "-frequency"] | default('immediately')}}</p>
             <a href="/edit?id={{subscription.id}}" class="button edit-subscription">Edit subscription</a>
             <button class="button unsubscribe">Unsubscribe</button>
           </li>

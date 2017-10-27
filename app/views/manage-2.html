@@ -6,6 +6,9 @@
 
 {% block content %}
 
+{% set daily_digest = data.daily_digest | default('separately') %}
+{% set weekly_digest = data.weekly_digest | default('separately') %}
+
 <main id="content" role="main" class="manage">
   <div class="grid-row">
     <div class="column-two-thirds">
@@ -32,8 +35,8 @@
 							<input
 								id="daily-separately"
 								type="radio"
-								name="daily-group"
-                {% if digests.daily === "separately" %}
+								name="daily_digest"
+                {% if daily_digest === "separately" %}
                   checked="checked"
                 {% endif %}
 								value="separately">
@@ -43,11 +46,11 @@
 							<input
 								id="daily-combined"
 								type="radio"
-								name="daily-group"
-                {% if digests.daily === "combined" %}
+								name="daily_digest"
+                {% if daily_digest === "combined" %}
                   checked="checked"
                 {% endif %}
-								value="separately">
+								value="combined">
 							<label for="daily-combined">One combined email</label>
 						</div>
 					</fieldset>
@@ -62,8 +65,8 @@
 							<input
 								id="weekly-separately"
 								type="radio"
-								name="weekly-group"
-                {% if digests.weekly === "separately" %}
+								name="weekly_digest"
+                {% if weekly_digest === "separately" %}
                   checked="checked"
                 {% endif %}
 								value="separately">
@@ -73,11 +76,11 @@
 							<input
 								id="weekly-combined"
 								type="radio"
-								name="weekly-group"
-                {% if digests.weekly === "combined" %}
+								name="weekly_digest"
+                {% if weekly_digest === "combined" %}
                   checked="checked"
                 {% endif %}
-								value="separately">
+								value="combined">
 							<label for="weekly-combined">One combined email</label>
 						</div>
 					</fieldset>

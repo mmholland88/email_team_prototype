@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% set frequency = data[id + "-frequency"] | default('immediately') %}
+
 <main id="content" role="main" class="manage">
   <div class="grid-row">
     <div class="column-two-thirds">
@@ -26,7 +28,7 @@
 							<input
                 id="immediately"
                 type="radio"
-                name="frequency"
+                name="{{id}}-frequency"
                 {% if frequency === "immediately" %}
                   checked="checked"
                 {% endif %}
@@ -37,7 +39,7 @@
 							<input
                 id="immediately"
                 type="radio"
-                name="frequency"
+                name="{{id}}-frequency"
                 {% if frequency === "daily" %}
                   checked="checked"
                 {% endif %}
@@ -48,7 +50,7 @@
 							<input
                 id="immediately"
                 type="radio"
-                name="frequency"
+                name="{{id}}-frequency"
                 {% if frequency === "weekly" %}
                   checked="checked"
                 {% endif %}

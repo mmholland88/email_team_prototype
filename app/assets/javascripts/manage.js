@@ -38,6 +38,8 @@ var Manage = function () {
     $(".address").prop("disabled", true);
     $(".save-address").replaceWith(addressSavedElement);
     $(".cancel-address").hide();
+
+    saveInSession($(".address").val());
   };
 
   var addressChanged = function (element) {
@@ -96,6 +98,10 @@ var Manage = function () {
     var html = "<p class='address-saved'>" + text + undo + "</p>";
 
     return html;
+  };
+
+  var saveInSession = function (address) {
+    $.post("/manage", { address: address });
   };
 };
 

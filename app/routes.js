@@ -7,23 +7,16 @@ router.get('/', function (req, res) {
 })
 
 var data = {
-  address: 'foo@example.com',
-  digests: {
-    daily: "separately",
-    weekly: "combined",
-  },
   subscriptions: [
     {
       id: 1,
       title: 'Publications from the Department for Education',
       url: "https://example.com/subscription-1",
-      frequency: 'daily',
     },
     {
       id: 2,
       title: 'Spain Travel Alerts',
       url: "https://example.com/subscription-2",
-      frequency: 'immediately',
     },
   ]
 }
