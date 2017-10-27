@@ -8,34 +8,42 @@ router.get('/', function (req, res) {
 
 var data = {
   address: 'foo@example.com',
-  preferences: [
-    {
-      name: 'daily',
-      value: 'as one combined email',
-    },
-    {
-      name: 'weekly',
-      value: 'as separate emails',
-    },
-  ],
+  digests: {
+    daily: "separately",
+    weekly: "combined",
+  },
   subscriptions: [
     {
+      id: 1,
       title: 'Publications from the Department for Education',
-      frequency: 'daily',
-      channel: 'an email',
       url: "https://example.com/subscription-1",
+      frequency: 'daily',
     },
     {
+      id: 2,
       title: 'Spain Travel Alerts',
-      frequency: 'immediately',
-      channel: 'a text message',
       url: "https://example.com/subscription-2",
+      frequency: 'immediately',
     },
   ]
 }
 
 router.get('/manage', function (req, res) {
   res.render('manage', data);
+})
+
+router.get('/manage-2', function (req, res) {
+  res.render('manage-2', data);
+})
+
+router.get('/edit', function (req, res) {
+  var subscription;
+  for (var i = 0; i < data.subscriptions.length; i += 1) {
+    if (data.subscriptions[i].id.toString() === req.query.id) {
+      subscription = data.subscriptions[i];
+    }
+  }
+  res.render('edit', subscription);
 })
 
 module.exports = router

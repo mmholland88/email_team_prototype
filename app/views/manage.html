@@ -25,36 +25,22 @@
 
 			<div class="panel panel-border-wide">
 				<p>
-					You can receive your subscription emails immediately, or as daily or weekly digests.
-					If you choose to receive digests for multiple topics, they can be sent separately or combined into a single email.
+					You can get updates for each of your subscriptions immediately, or as daily or weekly digests.
 				</p>
 			</div>
 
-      <ul class="preferences">
-        {% for preference in preferences %}
-        <li>
-            <p>
-            Receive all your {{ preference.name }} digests
-            <a class="preference" href="javascript:void(0);">{{ preference.value }}</a>.
-            </p>
+      <ol class="subscriptions">
+			<form method="get" action="/manage-2">
+        {% for subscription in subscriptions %}
+          <li class="subscription">
+            <h2 class="heading-medium">{{subscription.title}}</h2>
+            <p>Received {{subscription.frequency}}</p>
+            <a href="/edit?id={{subscription.id}}" class="button edit-subscription">Edit subscription</a>
+            <button class="button unsubscribe">Unsubscribe</button>
           </li>
         {% endfor %}
-      </ul>
-
-      <ol class="subscriptions">
-      {% for subscription in subscriptions %}
-        <li class="subscription">
-          <h2 class="heading-medium">{{subscription.title}}</h2>
-          <p>
-            Receive
-            <a class="frequency" href="javascript:void(0);">{{subscription.frequency}}</a>
-            as
-            <a class="channel" href="javascript:void(0);">{{subscription.channel}}</a>.
-          </p>
-          <a href="{{ subscription.url }}" class="button change-content">Refine subscription</a>
-          <button class="button unsubscribe">Unsubscribe</button>
-        </li>
-      {% endfor %}
+        <input type="submit" class="button next" value="Next"></input>
+			</form>
       </ol>
     </div>
   </div>

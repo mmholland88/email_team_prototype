@@ -2,10 +2,6 @@
 
 
 .manage {
-  select {
-    overflow-y: auto;
-  }
-
   .address:disabled {
     color: black;
     border: none;
@@ -44,15 +40,11 @@
     margin-top: 1em;
   }
 
-  .preferences {
-    margin-top: 2.5em;
-  }
-
   .subscription {
     margin-top: 4em;
 
     .button {
-      margin: 0 1em 1em 0;
+      margin: 0 1em 0.5em 0;
 
       &.unsubscribe {
         background-color: $mellow-red;
@@ -65,17 +57,11 @@
     }
   }
 
-  .dropdown-container {
-    position: relative;
-    display: inline-block;
-    min-width: 6.5em;
-    margin-left: 0.25em;
+  .next {
+    margin-top: 4em;
   }
 
-  .dropdown {
-    width: inherit;
-    position: absolute;
-    z-index: 1;
-    top: -1.25em;
-  }
+	.done {
+		margin-top: 2em;
+	}
 }

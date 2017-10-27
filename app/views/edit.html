@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Manage your subscriptions
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" class="manage">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        {{ title }}
+      </h1>
+
+      <a href="{{ url }}" class="button">Change contents</a>
+
+			<form method="get" action="/manage">
+				<div class="form-group">
+					<fieldset>
+						<legend>
+							<h2 class="heading-medium">When would you like to receive updates?</h2>
+						</legend>
+						<div class="multiple-choice">
+							<input
+                id="immediately"
+                type="radio"
+                name="frequency"
+                {% if frequency === "immediately" %}
+                  checked="checked"
+                {% endif %}
+                value="immediately">
+							<label for="immediately">Immediately</label>
+						</div>
+						<div class="multiple-choice">
+							<input
+                id="immediately"
+                type="radio"
+                name="frequency"
+                {% if frequency === "daily" %}
+                  checked="checked"
+                {% endif %}
+                value="daily">
+							<label for="daily">Daily</label>
+						</div>
+						<div class="multiple-choice">
+							<input
+                id="immediately"
+                type="radio"
+                name="frequency"
+                {% if frequency === "weekly" %}
+                  checked="checked"
+                {% endif %}
+                value="weekly">
+							<label for="weekly">Weekly</label>
+						</div>
+					</fieldset>
+				</div>
+
+        <input type="submit" class="button done" value="Done"></input>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
