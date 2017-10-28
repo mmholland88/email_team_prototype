@@ -16,26 +16,9 @@ $ npm start
 
 Then visit [http://localhost:3000/manage](http://localhost:3000/manage)
 
-## Things left to do
+## Next steps
 
-We need to make the protoype work with data, perhaps backed by
-[local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
-
-Currently, clicking on things like 'Unsubscribe' changes the UI but it doesn't
-manipulate any data. We need to add this behaviour to `manage.js`.
-
-We then need to integrate this against the
-[existing prototype](https://drive.google.com/open?id=0B-VU1pLvidLjZ2psdXd2UVJnNFk)
-by adding a link from the 'Verification' page of the Education taxonomy to this
-app.
-
-When we direct people to this app we should set some params, e.g.
-`email=foo@example.com&title=All%20publications&frequency=immediate|daily|weekly&edit_subscription_url=http://example.com`
-
-We can then store these params in local storage as a subscription.
-
-The `edit_subscription_url` should link back to the signup journey when the
-'Refine subscription' button is clicked in this prototype.
-
-We also need to pull the relevant files from the previous prototype into this
-one.
+- Host the files from the previous prototype in this app
+- Add a link to the verification page of the old prototype
+- The link should look [like this](http://localhost:3000/create?title=Example%20subscription&url=http://example.com&frequency=weekly&address=foo@bar.com)
+- Make the unsubscribe/undo functionality change session data

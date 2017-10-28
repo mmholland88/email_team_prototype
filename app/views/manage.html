@@ -7,6 +7,7 @@
 {% block content %}
 
 {% set address = data.address | default('test@example.com') %}
+{% set subscriptions = data.subscriptions | default([]) %}
 
 <main id="content" role="main" class="manage">
   <div class="grid-row">

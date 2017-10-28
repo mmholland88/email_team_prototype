@@ -69,6 +69,7 @@ var Manage = function () {
   var undoAddress = function (element) {
     $(".address").val(self.originalEmail);
     $(".address-saved").replaceWith(self.changeAddress);
+    saveInSession(self.originalEmail);
   };
 
   var unsubscribe = function (element) {
