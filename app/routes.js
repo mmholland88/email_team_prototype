@@ -1,5 +1,8 @@
 var express = require('express');
+var path = require('path');
 var router = express.Router();
+
+router.use("/signup", express.static("user_flow_prototype"));
 
 var createSubscription = function (request) {
   var subscriptions = request.session.data.subscriptions || [];
