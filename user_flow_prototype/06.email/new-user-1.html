@@ -46,6 +46,54 @@ This is the second line of text.
 
 
 
+   <script>
+      function getQueryVariable(variable){
+         try{
+            q = location.search.substring(1);
+            v = q.split("&");
+            for( var i = 0; i < v.length; i++ ){
+               p = v[i].split("=");
+               if( p[0] == variable ){
+                  if( p[1].indexOf('%20') != -1 ){
+                     n = [];
+                     for( var j = 0; j < p[1].split('%20').length; j++ ){
+                        n.push(p[1].split('%20')[j]);
+                     }
+                     str = "";
+                     for( var k = 0; k < n.length; k++ ){
+                        str += n[k] + ' ';
+                     }
+                     return str.trim();
+                  }
+                  else{
+                     return p[1];
+                  }
+               }
+            }
+         }
+         catch (e){
+            console.log(e);
+         }
+      }
+
+      var varTopic = getQueryVariable("topic");
+      var varTopicParent = getQueryVariable("topicparent");
+      var varVersion = getQueryVariable("version");
+      var varEmail = getQueryVariable("email");
+      var varFreq = "immediately"; // TODO
+      var refineUrl = encodeURIComponent('/signup/03.refine/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&email='+varEmail+'&version='+varVersion);
+   </script>
+
+
+
+
+
+
+
+
+
+
+
 <div id="m_-5926764776064617841mail_footer">
     <div style="max-width:700px">
 
@@ -61,9 +109,11 @@ This is the second line of text.
     <td style="padding:16px 0">
       <span style="font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:bold">
         Too many emails?
-<a href="/manage" title="Subscriber preferences" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en-GB&amp;q=https://public.govdelivery.com/accounts/UKGOVUK/subscriber/edit?preferences%3Dtrue%23tab1&amp;source=gmail&amp;ust=1509453803752000&amp;usg=AFQjCNGGLk6SXbmjno7XK_mBfmavqrxLLQ">
+
+<a href="#" onclick="window.location.href='/create?title='+varTopic+'&frequency='+varFreq+'&url='+refineUrl+'&address='+varEmail">
 Manage your subscriptions
 </a>
+
       </span>
     </td>
   </tr>
