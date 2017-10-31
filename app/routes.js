@@ -10,6 +10,10 @@ var createSubscription = function (request) {
   var params = request.query;
   var nextId = subscriptions.length + 1;
 
+  if (subscriptionExistsWithTitle(subscriptions, params.title)) {
+    return;
+  }
+
   var subscription = {
     id: nextId,
     title: params.title,
@@ -34,6 +38,16 @@ var findSubscription = function (request) {
   }
 
   return JSON.parse(JSON.stringify(subscription));
+};
+
+var subscriptionExistsWithTitle = function (subscriptions, title) {
+  for (var i = 0; i < subscriptions.length; i += 1) {
+    if (subscriptions[i].title === title) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
 var setEmailAddress = function (request) {
