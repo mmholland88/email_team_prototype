@@ -60,11 +60,16 @@
          }
       }
 
+      var varEmail= getQueryVariable("email");
       var varTopic = getQueryVariable("topic");
       var varTopicParent = getQueryVariable("topicparent");
       var varVersion = getQueryVariable("version");
 
-
+      // Redirect to the next page if an email is already set.
+      if (varEmail !== "undefined") {
+        var nextUrl = '../04.email-sent/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail;
+        window.location.href = nextUrl;
+      }
    </script>
 
   <body class="js-enabled">
