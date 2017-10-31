@@ -17,6 +17,12 @@
         Manage your subscriptions
       </h1>
 
+      <script>
+        if (window.location.href.indexOf("saved") !== -1) {
+          document.write('<p class="saved-successfully">Your changes have been saved successfully.</p>');
+        }
+      </script>
+
       <span class="lede">
         Viewing subscriptions for
         <input type="text" value="{{ address }}" class="address" disabled="disabled"></input>
