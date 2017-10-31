@@ -72,14 +72,21 @@ var Manage = function () {
     saveInSession(self.originalEmail);
   };
 
-  var unsubscribe = function (element) {
-    var button = element.target;
+  var unsubscribe = function (event) {
+    var button = event.target;
+    var subscription = $(button).closest(".subscription").data("subscription");
+
     self.unsubButton = $(button).replaceWith(unsubscribedElement);
+    unsubscribeInSession(subscription);
   };
 
   var undoUnsubscribe = function (element) {
     var span = $(element.target).closest(".unsubscribed");
+    var subscription = $(span).closest(".subscription").data("subscription");
+    var frequency = $(span).closest(".subscription").data("frequency");
+
     span.replaceWith(self.unsubButton);
+    subscribeInSession(subscription, frequency);
   };
 
   var unsubscribedElement = function () {
@@ -103,6 +110,17 @@ var Manage = function () {
 
   var saveInSession = function (address) {
     $.post("/manage", { address: address });
+  };
+
+  var unsubscribeInSession = function (subscription) {
+    $.get("/unsubscribe", { id: subscription.id });
+  };
+
+  var subscribeInSession = function (subscription, frequency) {
+    var title = subscription.title;
+    var url = subscription.url;
+
+    $.get("/create", { title: title, url: url, frequency: frequency });
   };
 };
 

@@ -33,9 +33,11 @@
       <ol class="subscriptions">
 			<form method="get" action="/manage-2">
         {% for subscription in subscriptions %}
-          <li class="subscription">
+          {% set frequency = data[subscription.id + "-frequency"] | default('immediately') %}
+
+          <li class="subscription" data-subscription="{{ subscription | dump }}" data-frequency="{{frequency}}">
             <h2 class="heading-medium">{{subscription.title}}</h2>
-            <p>Received {{data[subscription.id + "-frequency"] | default('immediately')}}</p>
+            <p>Received {{frequency}}</p>
             <a href="/edit?id={{subscription.id}}" class="button edit-subscription">Edit subscription</a>
             <button class="button unsubscribe">Unsubscribe</button>
           </li>

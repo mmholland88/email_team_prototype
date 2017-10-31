@@ -26,6 +26,21 @@ var createSubscription = function (request) {
   request.session.data[nextId + "-frequency"] = params.frequency;
 };
 
+var deleteSubscription = function (request) {
+  var id = parseInt(request.query.id, 10);
+
+  if (typeof(request.session.data.subscriptions) === undefined) {
+    return;
+  }
+
+  for (var i = 0; i < request.session.data.subscriptions.length; i += 1) {
+    if (request.session.data.subscriptions[i].id === id) {
+      request.session.data.subscriptions.splice(i, 1);
+      return;
+    }
+  }
+};
+
 var findSubscription = function (request) {
   var subscriptions = request.session.data.subscriptions || [];
   var id = parseInt(request.query.id, 10);
@@ -77,6 +92,11 @@ router.get('/create', function (req, res) {
   createSubscription(req);
   setEmailAddress(req);
 
+  res.redirect('/manage');
+});
+
+router.get('/unsubscribe', function (req, res) {
+  deleteSubscription(req);
   res.redirect('/manage');
 });
 
