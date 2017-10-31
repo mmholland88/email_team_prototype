@@ -134,10 +134,28 @@
 
 
     <main>
-      <h1>Get emails when documents are published or&nbsp;changed</h1>
+      <h1>Enter your email address</h1>
+      <p style='font-size: 19px;'>
+      You're subscribing to get email alerts about:
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;<script>document.write(varTopic);</script>
+      </p>
+
+      <p style='font-size: 19px;'>
+        You'll get these
+        <script>
+          if (varFreq === "daily") {
+            document.write("once a day.");
+          } else if (varFreq === "weekly") {
+            document.write("once a week.");
+          } else {
+            document.write("as soon as changes are published.");
+          }
+        </script>
+      </p>
+
       <div class="form-group">
-         <label class="form-label" for="email-f1">What is your email address?</label>
-         <input class="form-control" id="email-f1" type="text" name="full-name-f1">
+         <input class="form-control" id="email-f1" type="text" name="full-name-f1" placeholder="Email address">
       </div>
 
       <script>
