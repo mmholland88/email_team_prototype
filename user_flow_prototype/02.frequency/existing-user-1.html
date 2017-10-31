@@ -67,6 +67,7 @@
       var varVersion = getQueryVariable("version");
       var varEmail = getQueryVariable("email");
       var varRefined = getQueryVariable("refined");
+      var varFreq = getQueryVariable("freq");
 
       var varCount = ("10");
 
@@ -216,8 +217,16 @@
           if (varRefined){$("#topic-count").hide(); }
       </script>
 
+      <script>
+        function buttonURL(){
+          var varFreq= $(".multiple-choice.checked").data("target");
+          var varButtonURL = '../01.ask-for-email/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail+'&freq='+varFreq;
+          window.location.href = varButtonURL;
+        };
+      </script>
+
       <div class="form-group">
-         <button onclick="window.location.href='../01.ask-for-email/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail" id="next" class="button">Next</button>
+         <button onclick="buttonURL()" id="next" class="button">Next</button>
       </div>
     </main>
 

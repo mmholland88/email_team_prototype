@@ -64,10 +64,11 @@
       var varTopic = getQueryVariable("topic");
       var varTopicParent = getQueryVariable("topicparent");
       var varVersion = getQueryVariable("version");
+      var varFreq = getQueryVariable("freq");
 
       // Redirect to the next page if an email is already set.
       if (varEmail !== "undefined") {
-        var nextUrl = '../04.email-sent/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail;
+        var nextUrl = '../04.email-sent/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail+'&freq='+varFreq;
         window.location.href = nextUrl;
       }
    </script>
@@ -143,7 +144,7 @@
       <script>
         function buttonURL(){
            var varEmail= document.getElementById('email-f1').value;
-           var varButtonURL = '../04.email-sent/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail;
+           var varButtonURL = '../04.email-sent/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail+'&freq='+varFreq;
            window.location.href = varButtonURL;
         };
       </script>
