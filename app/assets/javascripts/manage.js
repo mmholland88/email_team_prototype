@@ -76,7 +76,7 @@ var Manage = function () {
     var button = event.target;
     var subscription = $(button).closest(".subscription").data("subscription");
 
-    self.unsubButton = $(button).replaceWith(unsubscribedElement);
+    $(button).replaceWith(unsubscribedElement);
     unsubscribeInSession(subscription);
   };
 
@@ -85,8 +85,12 @@ var Manage = function () {
     var subscription = $(span).closest(".subscription").data("subscription");
     var frequency = $(span).closest(".subscription").data("frequency");
 
-    span.replaceWith(self.unsubButton);
+    span.replaceWith(unsubscribeButton());
     subscribeInSession(subscription, frequency);
+  };
+
+  var unsubscribeButton = function () {
+    return "<button class='button unsubscribe'>Unsubscribe</button>";
   };
 
   var unsubscribedElement = function () {
