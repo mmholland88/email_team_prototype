@@ -69,6 +69,20 @@
       var varRefined = getQueryVariable("refined");
       var varFreq = getQueryVariable("freq");
 
+      // Redirect to the next page if a frequency is already set.
+      if (varFreq !== "undefined") {
+        var nextUrl = '../01.ask-for-email/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail+'&freq='+varFreq;
+        window.location.href = nextUrl;
+      }
+
+      var varCount = ("153");
+
+      if (varRefined){
+         var varCount = ("9");
+      };
+
+      varWeekCount = varCount * 5;
+
    </script>
 
    <script src="../xx.assets/jquery-1.11.0.min.js">
@@ -139,7 +153,8 @@
     <main>
       <h1>How often do you want to get&nbsp;emails?</h1>
       <div class="form-group" id="topic-count">
-         <p>There is about 1 update or new document published to the <script>document.write(varTopic)</script> area a week.</p>
+         <p>There are about 2 updates and new documents published to the <script>document.write(varTopic)</script> area a week. You can get updates as separate emails or as a daily or weekly&nbsp;email.</p>
+         <p>If that's too many updates, you can <a onclick="window.location.href='../03.refine/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail" href="#">make your selection more specific</a>.</p>
       </div>
       <div class="form-group">
          <p><strong>Do you want to receive your emails:</strong></p>
@@ -149,9 +164,7 @@
              <label for="example-immediately">Immediately - get updates as soon as they're published</label>
            </div>
            <div class="panel panel-border-narrow js-hidden" id="immediately">
-             <p><strong>You'll get about 1 email a day</strong></p>
-             <p class="math-detail">1 email a week about <script>document.write(varTopic)</script><br>&plus; 1 email a day we're already sending to <script>document.write(varEmail)</script></p>
-             <p>Get less emails by being <a onclick="window.location.href='../03.refine/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail" href="#">more specific about your interests</a></p>
+             <p><strong>You'll get an email about every 3 days</strong></p>
            </div>
 
            <p class="form-block">or you can group all your updates together and get them:</p>
@@ -161,19 +174,16 @@
              <label for="example-daily">Once a day</label>
            </div>
            <div class="panel panel-border-narrow js-hidden" id="daily">
-             <p><strong>You'll continue to get 1 email a day</strong></p>
-             <p>Get less links by being <a onclick="window.location.href='../03.refine/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail" href="#">more specific about your interests</a></p>
-          </div>
+             <p><strong>You'll get an email about every 3 days</strong></p>
+            </div>
 
            <div class="multiple-choice not-checked" data-target="weekly">
              <input id="example-weekly" type="radio" name="radio-frequency-group" value="No">
              <label for="example-weekly">Once a week</label>
            </div>
            <div class="panel panel-border-narrow js-hidden" id="weekly">
-             <p><strong>You'll continue to get 1 email a day</strong></p>
-             <p class="math-detail">We'll send 1 email a week with about 1 link from <script>document.write(varTopic)</script> in it.<br>&plus; the daily email we already send to <script>document.write(varEmail)</script></p>
-             <p>Get less links by being <a onclick="window.location.href='../03.refine/'+varVersion+'.html?topic='+varTopic+'&topicparent='+varTopicParent+'&version='+varVersion+'&email='+varEmail" href="#">more specific about your interests</a></p>
-          </div>
+             <p><strong>You’ll get 1 email a week containing about 2 links</strong></p>
+           </div>
 
          </fieldset>
       </div>
@@ -210,7 +220,6 @@
           window.location.href = varButtonURL;
         };
       </script>
-
       <div class="form-group">
          <button onclick="buttonURL()" id="next" class="button">Next</button>
       </div>
